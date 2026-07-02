@@ -12,8 +12,13 @@
 
 <body>
     <nav class="navbar" aria-label="Main navigation">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navbar-menu" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <img src="assets/images/Profile Photo.jpg" alt="Jacob M Hupfer" width="230" height="300">
-        <ul class="navbar-items">
+        <ul class="navbar-items" id="navbar-menu">
             <li><a class="active" href="index.html">Home</a></li>
             <li><a href="resume.html">Resume</a></li>
             <li><a href="writing.html">Writing</a></li>
@@ -140,6 +145,15 @@
         reveals.forEach((element) => observer.observe(element));
         document.getElementById('year').textContent = new Date().getFullYear();
 
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbarMenu = document.getElementById('navbar-menu');
+
+        if (menuToggle && navbarMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navbarMenu.classList.toggle('is-open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
     </script>
 </body>
 

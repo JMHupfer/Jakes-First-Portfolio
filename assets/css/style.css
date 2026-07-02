@@ -69,6 +69,24 @@ img {
   letter-spacing: 0.08em;
 }
 
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 0.2rem;
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-light);
+  margin: 4px 0;
+  border-radius: 999px;
+}
+
 .navbar-items a {
   color: var(--color-light);
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
@@ -489,16 +507,25 @@ main h2 {
     padding: 1rem 1rem 0.75rem;
   }
 
+  .menu-toggle {
+    display: inline-block;
+  }
+
   .navbar img {
     max-width: 160px;
     margin: 0 auto 1rem;
   }
 
   .navbar-items {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
     gap: 0.7rem 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  .navbar-items.is-open {
+    display: flex;
   }
 
   .navbar-items a {
