@@ -51,20 +51,35 @@
         const menuToggle = document.querySelector('.menu-toggle');
         const navbarMenu = document.getElementById('navbar-menu');
 
+        const setMenuState = (isOpen) => {
+            if (!menuToggle || !navbarMenu) return;
+            navbarMenu.classList.toggle('is-open', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        };
+
         if (menuToggle && navbarMenu) {
             menuToggle.addEventListener('click', () => {
-                const isOpen = navbarMenu.classList.toggle('is-open');
-                menuToggle.setAttribute('aria-expanded', String(isOpen));
+                const isOpen = !navbarMenu.classList.contains('is-open');
+                setMenuState(isOpen);
             });
 
             document.querySelectorAll('.navbar-items a').forEach((link) => {
                 link.addEventListener('click', () => {
                     if (window.innerWidth <= 768) {
-                        navbarMenu.classList.remove('is-open');
-                        menuToggle.setAttribute('aria-expanded', 'false');
+                        setMenuState(false);
                     }
                 });
             });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    setMenuState(false);
+                }
+            });
+
+            if (window.innerWidth > 768) {
+                setMenuState(false);
+            }
         }
     </script>
 </body>
