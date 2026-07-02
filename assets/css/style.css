@@ -1,12 +1,12 @@
 :root {
   --sidebar-width: 270px;
-  --color-bg: #efe9dd;
-  --color-dark: #23262d;
-  --color-black: #13151a;
-  --color-light: #f8f5eb;
-  --color-accent: #9b5de5;
-  --color-accent-2: #00bbf9;
-  --shadow: 0 16px 40px rgba(19, 21, 26, 0.12);
+  --color-bg: #02021a; /* deep space */
+  --color-dark: #0b0f2a; /* navy/indigo */
+  --color-black: #e6eefb; /* main text (light on dark) */
+  --color-light: #cfe6ff; /* muted light */
+  --color-accent: #7c3aed; /* violet */
+  --color-accent-2: #00d4ff; /* cyan accent */
+  --shadow: 0 16px 40px rgba(2, 6, 23, 0.6);
 }
 
 * {
@@ -21,7 +21,9 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #f7f0e6 0%, var(--color-bg) 100%);
+  background: radial-gradient(circle at 10% 10%, rgba(255,255,255,0.02) 0, rgba(255,255,255,0) 2px),
+              radial-gradient(circle at 80% 30%, rgba(255,255,255,0.016) 0, rgba(255,255,255,0) 2px),
+              linear-gradient(180deg, #02021a 0%, var(--color-bg) 100%);
   color: var(--color-black);
   line-height: 1.6;
   overflow-x: hidden;
@@ -45,10 +47,10 @@ img {
   width: var(--sidebar-width);
   height: 100vh;
   padding: 20px;
-  background: linear-gradient(180deg, #101218 0%, #1c2028 100%);
+  background: linear-gradient(180deg, var(--color-dark) 0%, #070822 100%);
   color: var(--color-light);
   z-index: 100;
-  box-shadow: 8px 0 28px rgba(0, 0, 0, 0.18);
+  box-shadow: 8px 0 28px rgba(0, 0, 0, 0.45);
 }
 
 .navbar img {
